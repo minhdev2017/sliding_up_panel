@@ -339,7 +339,6 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProvid
                               bottom: widget.slideDirection == SlideDirection.DOWN ? 0.0 : null,
                               child: GestureDetector(
                                   onTapDown: (details) {
-                                    print('onHeaderDown');
                                     _onHeader = true;
                                   },
                                   child: widget.header ?? SizedBox()),
@@ -412,7 +411,6 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProvid
 
     return Listener(
       onPointerDown: (PointerDownEvent p) {
-        print('onPointerDown $_isPanelOpen');
         _onHeader = false;
         if (_isPanelOpen) {
           _scrollingEnabled = true;
@@ -433,7 +431,6 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProvid
   // handles the sliding gesture
   void _onGestureSlide(double dy) {
     // only slide the panel if scrolling is not enabled
-    print('_onGestureSlide $_scrollingEnabled ${widget.slideDirection}');
     if (!_scrollingEnabled) {
       if (widget.slideDirection == SlideDirection.UP)
         _ac.value -= dy / (widget.maxHeight - widget.minHeight);
