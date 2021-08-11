@@ -338,7 +338,7 @@ class _SlidingUpPanelState extends State<SlidingUpPanel> with SingleTickerProvid
                               top: widget.slideDirection == SlideDirection.UP ? 0.0 : null,
                               bottom: widget.slideDirection == SlideDirection.DOWN ? 0.0 : null,
                               child: GestureDetector(
-                                  onTapDown: (details) {
+                                  onVerticalDragDown: (details) {
                                     _onHeader = true;
                                   },
                                   child: widget.header ?? SizedBox()),
